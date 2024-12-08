@@ -29,11 +29,13 @@ def predict(network, x):
 x, t = get_testdata()
 network = init_network()
 
+batch_size = 100 # バッチの数
 accuracy_cnt = 0
-for i in range(len(x)): #当x是二维矩阵时，len（x）输出的是矩阵的行数
-    y = predict(network, x[i]) #每一行代表一个图像，用每个图像输入神经网络进行分类
-    p = np.argmax(y) #返回最大值所在的索引
-    if p == t[i]:
-        accuracy_cnt += 1
+for i in range(0, len(x), batch_size): #这个函数从0循环到len（x）-100，每次的间隔为100，例如0，100，200
+    x_batch = x[i:i+batch_size] #这个函数将行列切成i到 i+batch_size-1,共100份
+    y_batch = predict(network, x_batch) #对这100个图像进行推理，得到100x10的矩阵
+    p = np.argmax(y_batch, axis=1)  #对矩阵每一行进行单独分析，输出该行最大值在该行索引，得到100个元素的一维矩阵
+    accuracy_cnt += np.sum(p == t[i:i+batch_size]) #对预测值 p 和目标值 t[i:i+batch_size] 进行逐元素比较，返回一个布尔数组。
+    #例如，[1, 2, 3] == [1, 2, 4] 会返回 [True, True, False]。最后np.sum将布尔数组中的 True 视为 1，False 视为 0，然后求和。
 
-print("Accuracy:" + str(float(accuracy_cnt) / len(x))) #将accuracy_cnt转换为浮点数，确保计算结果也是浮点数，然后再转换成字符串输出
+print("Accuracy:" + str(float(accuracy_cnt) / len(x)))

@@ -1,12 +1,12 @@
 import numpy as np
-def cross_entropy_error_1(y, t):
+def cross_entropy_error_1(y, t): #当t是one_hot形式
     if y.ndim == 1:
         t = t.reshape(1, t.size) #交叉熵误差通常处理批量数据，因此需要将一维数据调整为二维形状调整为（1，t.size）形
         y = y.reshape(1, y.size) #这段代码的目的确保输入数据的维度一致性
     batch_size = y.shape[0]
     return -np.sum(t * np.log(y + 1e-7)) / batch_size
 
-def cross_entropy_error_2(y, t): #y是（batch_size,10)形状，是神经网络训练时的输出
+def cross_entropy_error_2(y, t): #y是（batch_size,10)形状，是神经网络训练时的输出。当t是数字形式时
     if y.ndim == 1:
         t = t.reshape(1, t.size)
         y = y.reshape(1, y.size)

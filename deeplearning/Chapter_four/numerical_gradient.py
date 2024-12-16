@@ -2,7 +2,7 @@ import numpy as np
 def numerical_gradient(f, x): #生成梯度向量的函数，x是行列
     h = 1e-4 # 0.0001
     grad = np.zeros_like(x) # np.zeros_like(x) は、x と同じ形状の配列で、その要素がすべて0の配列を生成する
-    for idx in range(x.size):
+    for idx in range(x.size): #缺点：这个函数只能处理一维度的x（x是指神经网络权重）
         tmp_val = x[idx]
         # f(x+h) の計算
         x[idx] = tmp_val + h

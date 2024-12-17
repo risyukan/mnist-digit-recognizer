@@ -1,6 +1,6 @@
 from numerical_gradient import numerical_gradient
 import numpy as np
-def gradient_descent(f, init_x, lr=0.01, step_num=100): #init_x是初始参数,进行了100次参数调整
+def gradient_descent(f, init_x, lr=0.01, step_num=100): #init_x是初始参数,进行了100次参数调整。lr是更新程度
     x = init_x
     for i in range(step_num): #生成0到99的数列，循环100次
         grad = numerical_gradient(f, x)

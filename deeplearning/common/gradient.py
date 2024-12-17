@@ -36,7 +36,7 @@ def numerical_gradient(f, x): #用于处理多元数组的x
     grad = np.zeros_like(x)
     
     it = np.nditer(x, flags=['multi_index'], op_flags=['readwrite']) #'multi_index'：在迭代时，生成每个元素在多维数组中的索引。索引值存储在 it.multi_index 中
-    while not it.finished: #当每个元素都被循环完后，it.finished会编程True
+    while not it.finished: #当每个元素都被循环完后，it.finished会变成True
         idx = it.multi_index
         tmp_val = x[idx]
         x[idx] = tmp_val + h

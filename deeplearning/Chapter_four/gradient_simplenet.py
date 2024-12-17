@@ -25,8 +25,10 @@ print(np.argmax(p))
 t = np.array([0, 0, 1])
 print(net.loss(x, t))
 
-def f(W):
+def f(W): #W并没有被用到，因为net.w的特性。之所以要设置W是因为numerical_gradient代码中的f（x）这一结构，必须有一个引数
     return net.loss(x, t)
 
 dW = numerical_gradient(f, net.W) #第一个参数需要是一个函数，而不能是一个值。为什么是f
-print(dW)
+print(dW) #这一步非常难，在f（新net.w）这一步，将会进入到net.loss（输入图像，标签）这一步，
+#然后进入到net.predict这一步，输入将会和新的w.net矩阵进行运算，实现代码中f（x）的功能
+#代码是计算梯度矩阵的

@@ -29,8 +29,8 @@ def relu_grad(x):
 
 
 def softmax(x):
-    x = x - np.max(x, axis=-1, keepdims=True)   # オーバーフロー対策
-    return np.exp(x) / np.sum(np.exp(x), axis=-1, keepdims=True)
+    x = x - np.max(x, axis=-1, keepdims=True)   # オーバーフロー対策，sxis沿着最后一个维度加和，之后保持数组维度为m×1，再借助广播机制进行数列加减。
+    return np.exp(x) / np.sum(np.exp(x), axis=-1, keepdims=True) #同样利用了广播机制
 
 
 def sum_squared_error(y, t):
@@ -38,9 +38,9 @@ def sum_squared_error(y, t):
 
 
 def cross_entropy_error(y, t):
-    if y.ndim == 1:
-        t = t.reshape(1, t.size)
-        y = y.reshape(1, y.size)
+    if y.ndim == 1: #如果输入的 y 是一维数组
+        t = t.reshape(1, t.size) #则将其转换为二维数组
+        y = y.reshape(1, y.size) #则将其转换为二维数组
 
     # 教師データがone-hot-vectorの場合、正解ラベルのインデックスに変換
     if t.size == y.size:

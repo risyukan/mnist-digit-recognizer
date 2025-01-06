@@ -71,6 +71,5 @@ class TwoLayerNet:
         grads['W2'] = self.layers['Affine2'].dW
         grads['b2'] = self.layers['Affine2'].db
 
-
-
         return grads
+        

@@ -62,9 +62,9 @@ def im2col(input_data, filter_h, filter_w, stride=1, pad=0):
         y_max = y + stride*out_h
         for x in range(filter_w):
             x_max = x + stride*out_w
-            col[:, :, y, x, :, :] = img[:, :, y:y_max:stride, x:x_max:stride]
+            col[:, :, y, x, :, :] = img[:, :, y:y_max:stride, x:x_max:stride] #因为在输出大小是 (3×3) 时，你可以想象滤波器左上角在原图上可滑动的所有位置
 
-    col = col.transpose(0, 4, 5, 1, 2, 3).reshape(N*out_h*out_w, -1)
+    col = col.transpose(0, 4, 5, 1, 2, 3).reshape(N*out_h*out_w, -1) #col是(N * out_h * out_W,C*PH*PW)
     return col
 
 

@@ -12,7 +12,7 @@ from common.optimizer import *
 # 0:MNISTデータの読み込み==========
 (x_train, t_train), (x_test, t_test) = load_mnist(normalize=True)
 
-train_size = x_train.shape[0]
+train_size = x_train.shape[0] #.shape会返回一个元组。[0]会取这个元组的第一个数的值，也就是数据的个数。
 batch_size = 128
 max_iterations = 2000
 

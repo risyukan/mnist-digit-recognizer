@@ -231,7 +231,7 @@ class Convolution:
 
     def backward(self, dout):
         FN, C, FH, FW = self.W.shape
-        dout = dout.transpose(0,2,3,1).reshape(-1, FN)
+        dout = dout.transpose(0,2,3,1).reshape(-1, FN) #与输出相对应
 
         self.db = np.sum(dout, axis=0)
         self.dW = np.dot(self.col.T, dout)

@@ -24,7 +24,7 @@ class Trainer:
         # optimizer
         optimizer_class_dict = {'sgd':SGD, 'momentum':Momentum, 'nesterov':Nesterov,
                                 'adagrad':AdaGrad, 'rmsprop':RMSprop, 'adam':Adam}
-        self.optimizer = optimizer_class_dict[optimizer.lower()](**optimizer_param)
+        self.optimizer = optimizer_class_dict[optimizer.lower()](**optimizer_param) #**解包参数传入函数中
         
         self.train_size = x_train.shape[0]
         self.iter_per_epoch = max(self.train_size / mini_batch_size, 1)

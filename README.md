@@ -33,17 +33,21 @@ ___
 
 ## 🛠️Installation
 This project requires Python 3.x and the following libraries:
+
 ```pip install numpy matplotlib```
 (Optional: If you want to re-download the dataset directly)
+
 ```pip install torchvision```
 
 ___
 
 ## 🚀 Usage
 Clone the repository and run the training script:
-```git clone https://github.com/risyukan/mnist-digit-recognizer.git```
-```cd mnist-digit-recognizer```
-```python mnist_train.py```
+``` 
+git clone https://github.com/risyukan/mnist-digit-recognizer.git
+cd mnist-digit-recognizer
+python mnist_train.py 
+```
 
 This will:
 - Train the CNN on MNIST

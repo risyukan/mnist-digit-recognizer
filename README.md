@@ -3,6 +3,9 @@
 A simple and clear implementation of handwritten digit recognition using the MNIST dataset.
 This project demonstrates a basic machine learning pipeline including data preprocessing, model training, evaluation, and visualization.
 
+<img width="1800" height="663" alt="image" src="https://github.com/user-attachments/assets/ad22b5dc-3b3e-440c-a760-83d91800db5f" />
+
+
 ___
 
 ## 🧠 Overview

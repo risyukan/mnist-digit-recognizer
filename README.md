@@ -35,6 +35,7 @@ ___
 This project requires Python 3.x and the following libraries:
 
 ```pip install numpy matplotlib```
+
 (Optional: If you want to re-download the dataset directly)
 
 ```pip install torchvision```

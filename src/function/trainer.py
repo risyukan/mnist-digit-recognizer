@@ -2,7 +2,7 @@
 import sys, os
 sys.path.append(os.pardir)  # 親ディレクトリのファイルをインポートするための設定
 import numpy as np
-from common.optimizer import *
+from optimizer import *
 
 class Trainer:
     """ニューラルネットの訓練を行うクラス

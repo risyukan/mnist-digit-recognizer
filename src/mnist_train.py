@@ -4,7 +4,7 @@ sys.path.append(os.pardir)  # 親ディレクトリのファイルをインポ�
 import numpy as np
 import matplotlib.pyplot as plt
 from dataset.mnist import load_mnist
-from SimpleConvNet import SimpleConvNet
+from src.layer.SimpleConvNet import SimpleConvNet
 from function.trainer import Trainer
 
 # データの読み込み
@@ -30,7 +30,7 @@ trainer.train()
 network.save_params("params.pkl")
 print("Saved Network Parameters!")
 
-# グラフの描画
+# Plotting training accuracy and test accuracy
 markers = {'train': 'o', 'test': 's'}
 x = np.arange(max_epochs)
 plt.plot(x, trainer.train_acc_list, marker='o', label='train', markevery=2)
